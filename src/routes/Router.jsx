@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Registration from "../components/Contact/Registration/Registration";
 import Login from "../components/Contact/Login/Login";
+import Events from "../components/Home/Events/Events";
 import Search from "../components/Home/Search/Search";
 
 const router = createBrowserRouter([
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Search />
+            },
+            {
+                path: 'events',
+                element: <Events />
             }
         ]
     },
@@ -21,7 +26,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'login',
-        element:  <Login />
+        element: <Login />
     }
 ])
 

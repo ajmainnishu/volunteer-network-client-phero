@@ -1,10 +1,34 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 const Search = () => {
+    // get fetch data state
+    const [volunteers, setVolunteers] = useState([]);
+    // get fetch data from server
+    useEffect(() => {
+        fetch('http://localhost:5000/volunteers')
+            .then(res => res.json())
+            .then(data => setVolunteers(data))
+    }, [volunteers])
     return (
-        <div className="text-center space-y-6 w-10/12 mx-auto">
-            <h1 className="uppercase font-bold text-3xl md:text-4xl">I grow by helping people in need.</h1>
-            <div className="flex justify-center items-center">
-                <input type="text" placeholder="Type here" className="input input-bordered border-e-0 rounded-l-lg rounded-none w-full max-w-xs" />
-                <button className="btn rounded-r-lg rounded-none capitalize bg-[#3F90FC] text-white border-0 font-medium text-base md:px-8">Search</button>
+        <div className="w-10/12 mx-auto mb-24 space-y-12">
+            {/* header title */}
+            <div className="text-center space-y-6">
+                <h1 className="uppercase font-bold text-3xl md:text-4xl">I grow by helping people in need.</h1>
+                {/* search item */}
+                <div className="flex justify-center items-center">
+                    <input type="text" placeholder="Type here" className="input input-bordered border-e-0 rounded-l-lg rounded-none w-full max-w-xs" />
+                    <button className="btn rounded-r-lg rounded-none capitalize bg-[#3F90FC] text-white border-0 font-medium text-base md:px-8">Search</button>
+                </div>
+            </div>
+            {/* container mapping */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+                {
+                    volunteers.map(volunteer => <div key={volunteer._id} className="relative">
+                        <img src={volunteer.img} alt="image" className="rounded-none w-full" />
+                        <Link className="absolute bottom-0 bg-yellow-500 right-0 left-0 capitalize text-white text-xl border-0 rounded-b-lg px-2 flex justify-center items-center hover:cursor-pointer h-[80px] hover:bg-transparent text-center">{volunteer.title}</Link>
+                    </div>)
+                }
             </div>
         </div>
     );

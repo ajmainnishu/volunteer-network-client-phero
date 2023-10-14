@@ -38,11 +38,11 @@ const Registration = () => {
             })
     }
     return (
-        <div className='pt-11 pb-44 space-y-7'>
+        <div className='pt-11 pb-44 space-y-7 bg-[#F8FAFC]'>
             <Link to={`/`} className=''>
                 <img src={logo} className="w-[197px] h-[60px] mx-auto" alt="website logo" />
             </Link>
-            <div className='space-y-12 pt-9 px-10 md:px-14 pb-16 border border-[#ABABAB] rounded md:w-[570px] md:mx-auto mx-5'>
+            <div className='space-y-12 pt-9 px-10 md:px-14 pb-16 border border-[#ABABAB] rounded md:w-[570px] md:mx-auto mx-5 bg-white'>
                 <h2 className='text-2xl font-bold text-black'>Register as a Volunteer</h2>
                 <form onSubmit={handleRegister} className="card-bod space-y-9">
                     {/* full name */}

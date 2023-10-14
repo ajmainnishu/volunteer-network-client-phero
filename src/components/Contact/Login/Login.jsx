@@ -26,11 +26,11 @@ const Login = () => {
             })
     }
     return (
-        <div className='pt-11 pb-64 space-y-16'>
+        <div className='pt-11 pb-64 space-y-16 bg-[#F8FAFC]'>
             <Link to={`/`} className=''>
                 <img src={logo} className="w-[197px] h-[60px] mx-auto" alt="website logo" />
             </Link>
-            <div className='space-y-8 py-36 px-10 md:px-14 border border-[#ABABAB] rounded md:w-[570px] md:mx-auto mx-5'>
+            <div className='space-y-8 py-36 px-10 md:px-14 border border-[#ABABAB] rounded md:w-[570px] md:mx-auto mx-5 bg-white'>
                 <h2 className='text-2xl font-bold text-center text-black'>Login With</h2>
                 <div className="space-y-4">
                     {/* google login button */}

@@ -45,7 +45,7 @@ const Events = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
                 {/* events mapping */}
                 {
-                    events.map(event => <div key={event._id} className="grid grid-cols-5 md:space-x-6 space-y-6 md:space-y-0 p-6 rounded-xl" style={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.05)' }}>
+                    events.map(event => <div key={event._id} className="grid grid-cols-5 md:space-x-6 space-y-6 md:space-y-0 p-6 bg-white rounded-xl" style={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.05)' }}>
                         {/* image */}
                         <div className="col-span-5 md:col-span-2">
                             <img src={event.img} alt="image" />

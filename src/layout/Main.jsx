@@ -3,7 +3,7 @@ import Navigation from "../components/Home/Navigation/Navigation";
 
 const Main = () => {
     return (
-        <div>
+        <div className="bg-[#F8FAFC]">
             <Navigation />
             <Outlet />
         </div>

@@ -58,7 +58,7 @@ const Search = () => {
                 {
                     volunteers.map(volunteer => <div key={volunteer._id} className="relative">
                         <img src={volunteer.img} alt="image" className="rounded-none w-full" />
-                        <button onClick={() => handleClick(`${volunteer._id}`)} className="absolute bottom-0 bg-yellow-500 right-0 left-0 capitalize text-white text-xl border-0 rounded-b-lg px-2 flex justify-center items-center hover:cursor-pointer h-[80px] hover:bg-transparent text-center">{volunteer.title}</button>
+                        <button onClick={() => handleClick(`${volunteer._id}`)} className="absolute bottom-0 bg-yellow-500 right-0 left-0 capitalize text-white text-xl border-0 rounded-b-lg px-2 flex justify-center items-center hover:cursor-pointer btn-block h-[80px] hover:bg-transparent text-center">{volunteer.title}</button>
                     </div>)
                 }
             </div>

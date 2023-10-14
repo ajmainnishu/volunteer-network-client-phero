@@ -1,7 +1,7 @@
 const EmptyPage = () => {
     return (
         <div>
-            <h2 className="text-center text-7xl py-20">404!!! Not Available</h2>
+            <h2 className="flex justify-center items-center text-7xl h-screen">404!!! Not Available</h2>
         </div>
     );
 };

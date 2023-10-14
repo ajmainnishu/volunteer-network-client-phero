@@ -12,9 +12,9 @@ const Navigation = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to={`/`}>Home</Link></li>
-                            <li><Link>Donation</Link></li>
+                            <li><Link to={`/donation`}>Donation</Link></li>
                             <li><Link to={`/events`}>Events</Link></li>
-                            <li><Link>Blog</Link></li>
+                            <li><Link to={`/blog`}>Blog</Link></li>
                         </ul>
                     </div>
                     <Link className="w-[197px] h-[60px]">
@@ -29,9 +29,9 @@ const Navigation = () => {
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal text-base text-[#0B0B0B] font-medium px-1">
                             <li><Link to={`/`}>Home</Link></li>
-                            <li><Link>Donation</Link></li>
+                            <li><Link to={`/donation`}>Donation</Link></li>
                             <li><Link to={`/events`}>Events</Link></li>
-                            <li><Link>Blog</Link></li>
+                            <li><Link to={`/blog`}>Blog</Link></li>
                         </ul>
                     </div>
                     <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">

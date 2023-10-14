@@ -4,6 +4,9 @@ import Registration from "../components/Contact/Registration/Registration";
 import Login from "../components/Contact/Login/Login";
 import Events from "../components/Home/Events/Events";
 import Search from "../components/Home/Search/Search";
+import Donation from "../components/Home/Donation/Donation";
+import Blog from "../components/Home/Blog/Blog";
+import EmptyPage from "../components/EmptyPage/EmptyPage";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +20,18 @@ const router = createBrowserRouter([
             {
                 path: 'events',
                 element: <Events />
+            },
+            {
+                path: 'donation',
+                element: <Donation />
+            },
+            {
+                path:  'blog',
+                element: <Blog />
+            },
+            {
+                path: '*',
+                element: <EmptyPage />
             }
         ]
     },

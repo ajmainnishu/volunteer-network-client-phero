@@ -18,7 +18,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Search />
+                element: <Search />,
+                loader: () => fetch('http://localhost:5000/volunteers')
             },
             {
                 path: 'events',

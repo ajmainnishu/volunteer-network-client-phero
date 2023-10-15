@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo.png';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from '../../../hooks/useTitle';
 
 const Registration = () => {
+    // website title dynamic
+    useTitle('Register');
     // register button
     const handleRegister = event => {
         event.preventDefault()

@@ -1,7 +1,10 @@
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from '../../../hooks/useTitle';
 
 const AddEvent = () => {
+    // website title dynamic
+    useTitle('Add Event');
     // submit button
     const handleVolunteer = event => {
         event.preventDefault();
@@ -18,7 +21,7 @@ const AddEvent = () => {
             },
             body: JSON.stringify(volunteerInfo)
         })
-            .then((result) => {
+            .then(() => {
                 // sweetalert
                 Swal.fire({
                     position: 'center',

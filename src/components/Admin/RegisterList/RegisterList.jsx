@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const RegisterList = () => {
+    // website title dynamic
+    useTitle('Register List');
     // get register get state
     const [registers, setRegisters] = useState([]);
     useEffect(() => {

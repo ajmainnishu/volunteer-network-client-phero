@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from "../../../hooks/useTitle";
 
 const Events = () => {
+    // website title dynamic
+    useTitle('Events');
     // events get fetch state
     const [events, setEvents] = useState([]);
     // get event fetch data from server

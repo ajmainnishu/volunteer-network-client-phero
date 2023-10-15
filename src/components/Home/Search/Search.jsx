@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import moment from 'moment';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from "../../../hooks/useTitle";
 
 const Search = () => {
+    // website title dynamic
+    useTitle('Home');
     // get fetch data state
     const [volunteers, setVolunteers] = useState([]);
     // get fetch data from server

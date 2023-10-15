@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                 element: <Donation />
             },
             {
-                path:  'blog',
+                path: 'blog',
                 element: <Blog />
             },
             {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'admin',
-        element:  <Admin />,
+        element: <Admin />,
         children: [
             {
                 path: 'registerlist',

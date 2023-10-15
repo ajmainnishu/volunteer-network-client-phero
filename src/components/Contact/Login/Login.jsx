@@ -1,13 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../../assets/logo/logo.png';
 import googleLogo from '../../../assets/images/login/google_logo.svg'
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
+import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
+    // website title dynamic
+    useTitle('Login');
     const { googleLogIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/'
     // google log in button
     const handleGoogleLogIn = () => {
         googleLogIn()
@@ -20,6 +26,8 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                // redirect after login
+                navigate(from, { replace: true })
             }).catch(error => {
                 // toastify
                 toast(error.message);

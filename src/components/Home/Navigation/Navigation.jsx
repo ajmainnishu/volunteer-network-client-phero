@@ -65,7 +65,7 @@ const Navigation = () => {
                     {/* buttons */}
                     {!user && <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
                         <Link to={`/registration`} className="btn capitalize bg-[#3F90FC] text-white text-base font-avenir md:px-11 font-medium rounded-md border-none">Register</Link>
-                        <Link to={`/login`} className="btn capitalize bg-[#434141] text-white text-base font-avenir md:px-11 font-medium rounded-md border-none">Admin</Link>
+                        <Link to={`/admin/registerlist`} className="btn capitalize bg-[#434141] text-white text-base font-avenir md:px-11 font-medium rounded-md border-none">Admin</Link>
                     </div>}
                     {/* email name */}
                     {user && <div className="dropdown dropdown-end hover:cursor-pointer">
@@ -74,7 +74,7 @@ const Navigation = () => {
                         </label>
                         {/* buttons */}
                         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                            <li><Link>Admin</Link></li>
+                            <li><Link to={`/admin/registerlist`}>Admin</Link></li>
                             <li><button onClick={handleLogOut}>Logout</button></li>
                         </ul>
                     </div>}

@@ -7,6 +7,8 @@ import Search from "../components/Home/Search/Search";
 import Donation from "../components/Home/Donation/Donation";
 import Blog from "../components/Home/Blog/Blog";
 import EmptyPage from "../components/EmptyPage/EmptyPage";
+import Admin from "../layout/Admin";
+import RegisterList from "../components/Admin/RegisterList";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,16 @@ const router = createBrowserRouter([
     {
         path: 'login',
         element: <Login />
+    },
+    {
+        path: 'admin',
+        element:  <Admin />,
+        children: [
+            {
+                path: 'registerlist',
+                element: <RegisterList />
+            }
+        ]
     }
 ])
 

@@ -8,7 +8,8 @@ import Donation from "../components/Home/Donation/Donation";
 import Blog from "../components/Home/Blog/Blog";
 import EmptyPage from "../components/EmptyPage/EmptyPage";
 import Admin from "../layout/Admin";
-import RegisterList from "../components/Admin/RegisterList";
+import RegisterList from "../components/Admin/RegisterList/RegisterList";
+import AddEvent from "../components/Admin/AddEvent/AddEvent";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: 'registerlist',
                 element: <RegisterList />
+            },
+            {
+                path: 'addevent',
+                element: <AddEvent />
             }
         ]
     }

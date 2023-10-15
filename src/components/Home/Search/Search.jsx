@@ -11,7 +11,7 @@ const Search = () => {
         fetch('http://localhost:5000/volunteers')
             .then(res => res.json())
             .then(data => setVolunteers(data))
-    }, [])
+    }, [volunteers])
     // moment js date
     const date = moment().format('D MMM, YYYY')
     // post event
@@ -42,7 +42,7 @@ const Search = () => {
 
     }
     return (
-        <div className="w-10/12 mx-auto mb-24 space-y-12">
+        <div className="w-10/12 mx-auto pb-24 space-y-12">
             {/* header title */}
             <div className="text-center space-y-6">
                 <h1 className="uppercase font-bold text-3xl md:text-4xl">I grow by helping people in need.</h1>
@@ -51,7 +51,6 @@ const Search = () => {
                     <input type="text" placeholder="Type here" className="input input-bordered border-e-0 rounded-l-lg rounded-none w-full max-w-xs" />
                     <button className="btn rounded-r-lg rounded-none capitalize bg-[#3F90FC] text-white border-0 font-medium text-base md:px-8">Search</button>
                 </div>
-                {/* <p>{moment().format('D MMM, YYYY')}</p> */}
             </div>
             {/* container mapping */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">

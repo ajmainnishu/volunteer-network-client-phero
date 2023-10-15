@@ -5,6 +5,8 @@ import useTitle from '../../../hooks/useTitle';
 const AddEvent = () => {
     // website title dynamic
     useTitle('Add Event');
+    // hex color code generator
+    let hexColor = `#${Math.random().toString(16).slice(2, 8).padEnd(6, 0)}`;
     // submit button
     const handleVolunteer = event => {
         event.preventDefault();
@@ -13,7 +15,8 @@ const AddEvent = () => {
         const img = form.photo.value;
         const time = form.date.value;
         const description = form.description.value;
-        const volunteerInfo = { title, img, time, description };
+        const color = hexColor;
+        const volunteerInfo = { title, img, time, description, color };
         fetch('http://localhost:5000/volunteers', {
             method: 'POST',
             headers: {

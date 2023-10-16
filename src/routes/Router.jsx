@@ -10,6 +10,7 @@ import EmptyPage from "../components/EmptyPage/EmptyPage";
 import Admin from "../layout/Admin";
 import RegisterList from "../components/Admin/RegisterList/RegisterList";
 import AddEvent from "../components/Admin/AddEvent/AddEvent";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -53,11 +54,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'registerlist',
-                element: <RegisterList />
+                element: <PrivateRoutes><RegisterList /></PrivateRoutes>
             },
             {
                 path: 'addevent',
-                element: <AddEvent />
+                element: <PrivateRoutes><AddEvent /></PrivateRoutes>
             }
         ]
     }

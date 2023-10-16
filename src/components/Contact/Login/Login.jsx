@@ -9,7 +9,7 @@ import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
     // website title dynamic
-    useTitle('Login');
+    useTitle('Login -');
     const { googleLogIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();

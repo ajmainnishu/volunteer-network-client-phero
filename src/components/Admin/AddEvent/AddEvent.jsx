@@ -4,7 +4,7 @@ import useTitle from '../../../hooks/useTitle';
 
 const AddEvent = () => {
     // website title dynamic
-    useTitle('Add Event');
+    useTitle('Add Event -');
     // hex color code generator
     let hexColor = `#${Math.random().toString(16).slice(2, 8).padEnd(6, 0)}`;
     // submit button
@@ -24,16 +24,19 @@ const AddEvent = () => {
             },
             body: JSON.stringify(volunteerInfo)
         })
-            .then(() => {
-                // sweetalert
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Done',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                form.reset();
+            .then(res => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    // sweetalert
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Done',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    form.reset();
+                }
             }).catch(error => {
                 // toastify
                 toast(error.message);

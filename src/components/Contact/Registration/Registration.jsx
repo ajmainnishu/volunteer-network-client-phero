@@ -6,7 +6,7 @@ import useTitle from '../../../hooks/useTitle';
 
 const Registration = () => {
     // website title dynamic
-    useTitle('Register');
+    useTitle('Register -');
     // register button
     const handleRegister = event => {
         event.preventDefault()
@@ -25,17 +25,22 @@ const Registration = () => {
             },
             body: JSON.stringify(register)
         })
-            .then(() => {
-                // sweetalert
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Register Done',
-                    showConfirmButton: true,
-                    timer: 1500
-                })
-                form.reset();
-            }).catch(error => {
+            .then(res => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    // sweetalert
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Register Done',
+                        showConfirmButton: true,
+                        timer: 1500
+                    })
+                    form.reset();
+                }
+
+            })
+            .catch(error => {
                 // toastify
                 toast(error.message);
             })

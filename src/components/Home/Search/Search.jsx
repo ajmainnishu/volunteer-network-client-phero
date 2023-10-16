@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Search = () => {
     // website title dynamic
-    useTitle('Home');
+    useTitle('');
     // get fetch data from server
     const loadingData = useLoaderData();
     // get fetch data state
@@ -26,16 +26,20 @@ const Search = () => {
             },
             body: JSON.stringify(data)
         })
-            .then(() => {
-                // sweetalert
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Done',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }).catch(error => {
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    // sweetalert
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Done',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+            .catch(error => {
                 // toastify
                 toast(error.message);
             })
@@ -75,7 +79,7 @@ const Search = () => {
                 <h1 className="uppercase font-bold text-3xl md:text-4xl">I grow by helping people in need.</h1>
                 {/* search item */}
                 <form onSubmit={handleSearch} className="flex justify-center items-center">
-                    <input id="a" onKeyDown={handleInputEnter} name="searchInput" type="text" placeholder="Type here" className="input input-bordered border-e-0 rounded-l-lg rounded-none w-full max-w-xs" />
+                    <input onKeyDown={handleInputEnter} name="searchInput" type="text" placeholder="Type here" className="input input-bordered border-e-0 rounded-l-lg rounded-none w-full max-w-xs" />
                     <button className="btn rounded-r-lg rounded-none capitalize bg-[#3F90FC] text-white border-0 font-medium text-base md:px-8">Search</button>
                 </form>
             </div>
@@ -84,7 +88,7 @@ const Search = () => {
                 {
                     volunteers.map(volunteer => <div key={volunteer._id} className="relative">
                         <img src={volunteer?.img} alt="image" className="rounded-none w-full" />
-                        <button onClick={() => handleClick(`${volunteer._id}`)} className="absolute bottom-0 right-0 left-0 capitalize text-white text-xl border-0 rounded-b-lg px-2 flex justify-center items-center hover:cursor-pointer btn-block h-[80px] hover:bg-transparent text-center" style={{backgroundColor: `${volunteer.color}`}}>{volunteer?.title}</button>
+                        <button onClick={() => handleClick(`${volunteer._id}`)} className="absolute bottom-0 right-0 left-0 capitalize text-white text-xl border-0 rounded-b-lg px-2 flex justify-center items-center hover:cursor-pointer btn-block h-[80px] hover:bg-transparent text-center" style={{ backgroundColor: `${volunteer.color}` }}>{volunteer?.title}</button>
                     </div>)
                 }
             </div>

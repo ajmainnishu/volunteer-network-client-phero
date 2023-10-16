@@ -5,7 +5,7 @@ import useTitle from "../../../hooks/useTitle";
 
 const Events = () => {
     // website title dynamic
-    useTitle('Events');
+    useTitle('Events -');
     // events get fetch state
     const [events, setEvents] = useState([]);
     // get event fetch data from server
@@ -27,15 +27,20 @@ const Events = () => {
             confirmButtonText: 'Yes, cancel it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Cancel!',
-                    'Your file has been cancel.',
-                    'success'
-                )
                 fetch(`http://localhost:5000/events/${id}`, {
                     method: 'DELETE'
                 })
-                    .then().catch(error => {
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Cancel!',
+                                'Your file has been cancel.',
+                                'success'
+                            )
+                        }
+                    })
+                    .catch(error => {
                         // toastify
                         toast(error.message);
                     })

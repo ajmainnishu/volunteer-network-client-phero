@@ -6,7 +6,7 @@ import useTitle from "../../../hooks/useTitle";
 
 const RegisterList = () => {
     // website title dynamic
-    useTitle('Register List');
+    useTitle('Register List -');
     // get register get state
     const [registers, setRegisters] = useState([]);
     useEffect(() => {
@@ -27,15 +27,21 @@ const RegisterList = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
                 fetch(`http://localhost:5000/register/${id}`, {
                     method: 'DELETE'
                 })
-                    .then().catch(error => {
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            // sweetalert
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+                    .catch(error => {
                         // toastify
                         toast(error.message);
                     })
